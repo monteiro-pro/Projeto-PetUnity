@@ -1,0 +1,17 @@
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\Biblioteca.dll.config
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\Biblioteca.dll
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\Biblioteca.pdb
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\FluentNHibernate.dll
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\Google.Protobuf.dll
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\Iesi.Collections.dll
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\MySql.Data.dll
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\NHibernate.dll
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\FluentNHibernate.pdb
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\FluentNHibernate.xml
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\Google.Protobuf.xml
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\Iesi.Collections.xml
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\MySql.Data.xml
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\Debug\NHibernate.xml
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\obj\Debug\Biblioteca.dll
+C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\obj\Debug\Biblioteca.pdb
