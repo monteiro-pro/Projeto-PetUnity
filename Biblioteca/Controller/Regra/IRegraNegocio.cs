@@ -12,7 +12,7 @@ namespace Biblioteca.Controller.Regra
         void Update(T entidade);
         void Remove(T entidade);
         T Select(int id);
-        List<T> List();
+        IList<T> List();
         void Validar(T entidade);
     }
 }

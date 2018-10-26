@@ -18,7 +18,7 @@ namespace Biblioteca.Controller.Regra
             new AnimalRepositorio().Insert(entidade);
         }
 
-        public List<Animal> List()
+        public IList<Animal> List()
         {
             return new AnimalRepositorio().List();
         }
@@ -35,7 +35,7 @@ namespace Biblioteca.Controller.Regra
             return new AnimalRepositorio().Select(id);
         }
 
-        public List<Animal> Select(string nome)
+        public IList<Animal> Select(string nome)
         {
             string tabela = BaseDeDados.tabelaAninal;
             string coluna = BaseDeDados.colunaNomeAnimal;

@@ -18,7 +18,7 @@ namespace Biblioteca.Controller.Regra
             new TransacaoRepositorio().Insert(entidade);
         }
 
-        public List<Transacao> List()
+        public IList<Transacao> List()
         {
             return new TransacaoRepositorio().List();
         }
@@ -35,7 +35,7 @@ namespace Biblioteca.Controller.Regra
             return new TransacaoRepositorio().Select(id);
         }
 
-        public List<Transacao> Select(DateTime data)
+        public IList<Transacao> Select(DateTime data)
         {
             string tabela = BaseDeDados.tabelaTransacao;
             string coluna = BaseDeDados.colunaDataTransacao;

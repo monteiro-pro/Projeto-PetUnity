@@ -18,7 +18,7 @@ namespace Biblioteca.Controller.Regra
             new AgendaRepositorio().Insert(entidade);
         }
 
-        public List<Agendamento> List()
+        public IList<Agendamento> List()
         {
             return new AgendaRepositorio().List();
         }
@@ -35,7 +35,7 @@ namespace Biblioteca.Controller.Regra
             return new AgendaRepositorio().Select(id);
         }
 
-        public List<Agendamento> Select(DateTime data)
+        public IList<Agendamento> Select(DateTime data)
         {
             string tabela = BaseDeDados.tabelaAgendamento;
             string coluna = BaseDeDados.colunaUnidadeAgendamento;

@@ -101,7 +101,7 @@ namespace Biblioteca.Model.Repositorio
             return entidade;
         }
 
-        public List<T> Select(string nome, string tabela, string coluna)
+        public IList<T> Select(string nome, string tabela, string coluna)
         {
             List<T> entidade;
 
@@ -130,11 +130,11 @@ namespace Biblioteca.Model.Repositorio
             return entidade;
         }
 
-        public List<T> Select(DateTime data, string tabela, string coluna)
+        public IList<T> Select(DateTime data, string tabela, string coluna)
         {
             List<T> entidade;
 
-            string query = $"SELECT * FROM {tabela} WHERE {coluna} = '{(data.ToString("yyyy/MM/dd")).AddSlashes()}';";
+            string query = $"SELECT * FROM {tabela} WHERE DATE({coluna}) = '{(data.ToString("yyyy-MM-dd")).AddSlashes()}';";
 
             using (ISession _session = NHibernateConecao.AbrirConexao())
             {
@@ -142,10 +142,6 @@ namespace Biblioteca.Model.Repositorio
                 {
                     try
                     {
-                        //var result = _session.CreateSQLQuery(query).List();
-
-                        //entidade = (List<T>)result;
-
                         ISQLQuery result = _session.CreateSQLQuery(query);
 
                         result.AddEntity(typeof(T));

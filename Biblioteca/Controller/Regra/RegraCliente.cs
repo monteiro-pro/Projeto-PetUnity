@@ -21,7 +21,7 @@ namespace Biblioteca.Controller.Regra
             new ClienteRepositorio().Insert(entidade);
         }
 
-        public List<Cliente> List()
+        public IList<Cliente> List()
         {
             return new ClienteRepositorio().List();
         }

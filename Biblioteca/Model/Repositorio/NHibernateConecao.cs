@@ -24,7 +24,7 @@ namespace Biblioteca.Model.Repositorio
                                                             .Database(
                                                                 MySQLConfiguration.Standard.ConnectionString("Server=localhost;Port=3306;Database=petunity;Username=root;Password=;SslMode=none"))
                                                                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ClienteMap>())
-                                                                .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, false));
+                                                                .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true));
             session = _configuration.BuildSessionFactory();
             return session;
         }

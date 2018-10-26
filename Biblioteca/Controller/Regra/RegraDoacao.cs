@@ -18,7 +18,7 @@ namespace Biblioteca.Controller.Regra
             new DoacaoRepositorio().Insert(entidade);
         }
 
-        public List<Doacao> List()
+        public IList<Doacao> List()
         {
             return new DoacaoRepositorio().List();
         }
@@ -35,7 +35,7 @@ namespace Biblioteca.Controller.Regra
             return new DoacaoRepositorio().Select(id);
         }
 
-        public List<Doacao> Select(DateTime data)
+        public IList<Doacao> Select(DateTime data)
         {
             string tabela = BaseDeDados.tabelaDoacao;
             string coluna = BaseDeDados.colunaDataDoacao;

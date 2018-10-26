@@ -51,7 +51,7 @@ namespace Biblioteca.Controller.Fachada
             return Cliente.Select(nome);
         }
 
-        public List<Cliente> ListCliente()
+        public IList<Cliente> ListCliente()
         {
             return Cliente.List();
         }
@@ -78,12 +78,12 @@ namespace Biblioteca.Controller.Fachada
             return Animal.Select(id);
         }
 
-        public List<Animal> SelectAnimal(string nome)
+        public IList<Animal> SelectAnimal(string nome)
         {
             return Animal.Select(nome);
         }
 
-        public List<Animal> ListAnimla()
+        public IList<Animal> ListAnimla()
         {
             return Animal.List();
         }
@@ -110,12 +110,12 @@ namespace Biblioteca.Controller.Fachada
             return Agendamento.Select(id);
         }
 
-        public List<Agendamento> SelectAgendamento(DateTime data)
+        public IList<Agendamento> SelectAgendamento(DateTime data)
         {
             return Agendamento.Select(data);
         }
 
-        public List<Agendamento> List()
+        public IList<Agendamento> List()
         {
             return Agendamento.List();
         }
@@ -142,12 +142,12 @@ namespace Biblioteca.Controller.Fachada
             return Transacao.Select(id);
         }
 
-        public List<Transacao> SelectTransacao(DateTime data)
+        public IList<Transacao> SelectTransacao(DateTime data)
         {
             return Transacao.Select(data);
         }
 
-        public List<Transacao> ListTransacao()
+        public IList<Transacao> ListTransacao()
         {
             return Transacao.List();
         }
@@ -174,12 +174,12 @@ namespace Biblioteca.Controller.Fachada
             return Doacao.Select(id);
         }
 
-        public List<Doacao> SelectDoacao(DateTime data)
+        public IList<Doacao> SelectDoacao(DateTime data)
         {
             return Doacao.Select(data);
         }
 
-        public List<Doacao> ListDoacao()
+        public IList<Doacao> ListDoacao()
         {
             return Doacao.List();
         }

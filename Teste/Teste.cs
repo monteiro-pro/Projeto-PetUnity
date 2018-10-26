@@ -87,7 +87,7 @@ namespace Teste
 
             //string datas = "2018/10/24";
 
-            DateTime data = DateTime.Now;
+            DateTime data = new DateTime(2018,10,24);
 
             //data.ToString();
             //data.ToString("yyyy/dd/MM");
