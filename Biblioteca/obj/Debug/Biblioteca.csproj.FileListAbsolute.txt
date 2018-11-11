@@ -15,3 +15,20 @@ C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\bin\
 C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
 C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\obj\Debug\Biblioteca.dll
 C:\Users\Monteiro\documents\visual studio 2015\Projects\PetUnity\Biblioteca\obj\Debug\Biblioteca.pdb
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\Biblioteca.dll.config
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\Biblioteca.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\Biblioteca.pdb
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\FluentNHibernate.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\Google.Protobuf.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\Iesi.Collections.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\MySql.Data.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\NHibernate.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\FluentNHibernate.pdb
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\FluentNHibernate.xml
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\Google.Protobuf.xml
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\Iesi.Collections.xml
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\MySql.Data.xml
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\NHibernate.xml
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\obj\Debug\Biblioteca.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\obj\Debug\Biblioteca.pdb

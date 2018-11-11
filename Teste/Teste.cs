@@ -102,6 +102,8 @@ namespace Teste
 
             //Console.WriteLine(Fachada.SelectDoacao(2).Doacao_Data.TimeOfDay);
             Console.ReadKey();
+
+            //Testando o Commit!
         }
     }
 }
