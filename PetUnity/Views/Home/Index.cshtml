@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>PetUnity</h1>
+    <p class="lead">A Pet Unit é uma ONG (Organização Não Governamental), sem fins lucrativos que tem como uns dos seus pilares diminuir ao 
+    máximo a quantidade de animais nas ruas com o objetivo de dar um tratamento a esses animais e os integrá-los a uma família.</p>
+    <p>@Html.ActionLink("Saiba Mais", "About", "Home", new { @Class = "btn btn-primary btn-lg" })</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Objetivo</h2>
+        <p>
+            Aprimorar o modelo atual que envolve cadastro, castração, adoção e doações de animais de estimação.
+        </p>
+        <p>@Html.ActionLink("Saiba Mais", "About", "Home", new { @Class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>História</h2>
+        <p> Fundada em 2010 hoje após oito anos de sua fundação a Pet Unit possui quatro unidades espalhadas pelo Brasil que estão localizadas no Rio de Janeiro, 
+        São Paulo, Minas Gerais e em Recife, tendo sua Sede localizada na cidade de Recife.</p>
+        <p>@Html.ActionLink("Saiba Mais", "About", "Home", new { @Class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Serviços</h2>
+        <p><span style="font-weight:bold">Cadastro</span> dos animais e também dos interessados em realizar adoções e doações.<br />
+            <span style="font-weight:bold">Adoção</span> para aqueles que estão á procura de um animal para adotar.<br />
+            <span style="font-weight:bold">Doação</span> para aquelas pessoas que não desejam continuar com seus animais e desejam entregá-los a uma família.<br />
+            <span style="font-weight:bold">Castração</span> para os pets.</p>
+        <p>@Html.ActionLink("Saiba Mais", "About", "Home", new { @Class = "btn btn-default" })</p>
+    </div>
+</div>
