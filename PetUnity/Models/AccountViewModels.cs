@@ -56,7 +56,7 @@ namespace PetUnity.Models
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
-        public string Password { get; set; }
+        public string Senha { get; set; }
 
         [Display(Name = "Lembrar-se?")]
         public bool RememberMe { get; set; }
@@ -64,6 +64,21 @@ namespace PetUnity.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Nome")]
+        public string Nome { get; set; }
+
+        [Required]
+        [Display(Name = "RG")]
+        public int RG { get; set; }
+
+        [Required]
+        [Display(Name = "CPF")]
+        public int CPF { get; set; }
+
+        [Display(Name = "Endereço")]
+        public string Endereco { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -73,12 +88,15 @@ namespace PetUnity.Models
         [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
-        public string Password { get; set; }
+        public string Senha { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar senha")]
-        [Compare("Password", ErrorMessage = "A senha e a confirmação de senha não são iguais.")]
-        public string ConfirmPassword { get; set; }
+        [Compare("Senha", ErrorMessage = "A senha e a confirmação de senha não são iguais.")]
+        public string ConfirmSenha { get; set; }
+
+        [Display(Name = "Telefone")]
+        public int Telefone { get; set; }
     }
 
     public class ResetPasswordViewModel

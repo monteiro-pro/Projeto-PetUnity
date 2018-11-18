@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PetUnity.Models;
+using Biblioteca.Controller.Fachada;
+using Biblioteca.Model.Entidade;
 
 namespace PetUnity.Controllers
 {
@@ -22,7 +24,7 @@ namespace PetUnity.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +36,9 @@ namespace PetUnity.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -73,9 +75,20 @@ namespace PetUnity.Controllers
                 return View(model);
             }
 
+            Fachada fachada = new Fachada();
+            Cliente cliente = new Cliente();
+
+            cliente = fachada.SelectCliente(model.Email, model.Senha);
+
+            if (cliente == null)
+            {
+                ModelState.AddModelError("", "Tentativa de login inválida.");
+                return View(model);
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(cliente.Cliente_Email, cliente.Cliente_Senha, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -86,7 +99,7 @@ namespace PetUnity.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Tentativa de login inválida.");
                     return View(model);
             }
         }
@@ -120,7 +133,7 @@ namespace PetUnity.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -152,17 +165,34 @@ namespace PetUnity.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = await UserManager.CreateAsync(user, model.Senha);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
+                    if (ModelState.IsValid)
+                    {
+                        Fachada fachada = new Fachada();
+
+                        Cliente cliente = new Cliente
+                        {
+                            Cliente_Nome = model.Nome,
+                            Cliente_RG = model.RG,
+                            Cliente_CPF = model.CPF,
+                            Cliente_Endereco = model.Endereco,
+                            Cliente_Email = model.Email,
+                            Cliente_Senha = model.Senha,
+                            Cliente_Telefone = model.Telefone
+                        };
+
+                        fachada.InsertCliente(cliente);
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
