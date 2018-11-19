@@ -62,11 +62,6 @@ namespace Biblioteca.Controller.Regra
                 throw new Exception("Data de Agendamento não informada!");
             }
 
-            if (String.IsNullOrEmpty(Convert.ToString(entidade.Agendamento_Hora)))
-            {
-                throw new Exception("Hora de agendamento não informado!");
-            }
-
             if (String.IsNullOrEmpty(entidade.Agendamento_Unidade))
             {
                 throw new Exception("Unidade não informada!");

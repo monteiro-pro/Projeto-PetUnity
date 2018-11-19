@@ -46,6 +46,11 @@ namespace Biblioteca.Controller.Regra
             return new ClienteRepositorio().Select(nome, tabela, coluna);
         }
 
+        public Cliente SelectEmail(string email)
+        {
+            return new ClienteRepositorio().Select(email);
+        }
+
         public Cliente Select(string email, string senha)
         {
             return new ClienteRepositorio().Select(email, senha);

@@ -32,5 +32,27 @@ namespace Biblioteca.Model.Implementacao
                 }
             }
         }
+
+        public Cliente Select(string email)
+        {
+            using (ISession _session = NHibernateConecao.AbrirConexao())
+            {
+                using (ITransaction _transaction = _session.BeginTransaction())
+                {
+                    try
+                    {
+                        Cliente result = new Cliente();
+                        result = (Cliente)_session.QueryOver<Cliente>().Where(x => x.Cliente_Email == email).SingleOrDefault();
+                        return result;
+                    }
+                    catch (Exception ex)
+                    {
+                        if (_transaction.WasCommitted)
+                            _transaction.Rollback();
+                        throw new Exception("Erro ao tentar Selecionar: " + ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

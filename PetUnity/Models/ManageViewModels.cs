@@ -78,6 +78,55 @@ namespace PetUnity.Models
         public string PhoneNumber { get; set; }
     }
 
+    public class AgendamentoViewModel
+    {
+        [Required]
+        [Display(Name = "Unidade")]
+        public string Unidade { get; set; }
+
+        [Required]
+        [Display(Name = "Data")]
+        public string Data { get; set; }
+
+        [Required]
+        [Display(Name = "Hora")]
+        public string Hora { get; set; }
+    }
+
+    public class CadastroAnimaisViewModel
+    {
+        [Required]
+        [Display(Name = "Nome")]
+        public string Nome { get; set; }
+
+        [Required]
+        [Display(Name = "Raça")]
+        public string Raca { get; set; }
+
+        [Required]
+        [Display(Name = "Especie")]
+        public string Especie { get; set; }
+
+        [Required]
+        [Display(Name = "Idade")]
+        public int Idade { get; set; }
+
+        [Required]
+        [Display(Name = "Peso")]
+        public int Peso { get; set; }
+    }
+
+    public class AdocaoViewModel
+    {
+    }
+
+    public class DoacaoViewModel
+    {
+        [Required]
+        [Display(Name = "Valor")]
+        public int Valor { get; set; }
+    }
+
     public class ConfigureTwoFactorViewModel
     {
         public string SelectedProvider { get; set; }

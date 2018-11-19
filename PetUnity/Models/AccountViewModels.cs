@@ -70,10 +70,12 @@ namespace PetUnity.Models
 
         [Required]
         [Display(Name = "RG")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "O Campo RG permite apenas números")]
         public int RG { get; set; }
 
         [Required]
         [Display(Name = "CPF")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "O Campo CPF permite apenas números")]
         public int CPF { get; set; }
 
         [Display(Name = "Endereço")]
@@ -96,6 +98,7 @@ namespace PetUnity.Models
         public string ConfirmSenha { get; set; }
 
         [Display(Name = "Telefone")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "O Campo Telefone permite apenas números")]
         public int Telefone { get; set; }
     }
 

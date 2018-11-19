@@ -10,7 +10,6 @@ namespace Biblioteca.Model.Entidade
     {
         public virtual int Agendamento_ID { get; set; }
         public virtual DateTime Agendamento_Data { get; set; }
-        public virtual DateTime Agendamento_Hora { get; set; }
         public virtual string Agendamento_Unidade { get; set; }
         public virtual Cliente Agendamento_Cliente { get; set; }
     }

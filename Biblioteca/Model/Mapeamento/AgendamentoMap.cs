@@ -15,7 +15,6 @@ namespace Biblioteca.Model.Mapeamento
             Table("tbl_Agendamento");
             Id(x => x.Agendamento_ID).GeneratedBy.Identity();
             Map(x => x.Agendamento_Data).Not.Nullable();
-            Map(x => x.Agendamento_Hora).Not.Nullable();
             Map(x => x.Agendamento_Unidade).Not.Nullable();
 
             References(x => x.Agendamento_Cliente).Not.Nullable();

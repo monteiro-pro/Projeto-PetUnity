@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PetUnity.Models;
+using Biblioteca.Controller.Fachada;
+using Biblioteca.Model.Entidade;
 
 namespace PetUnity.Controllers
 {
@@ -32,9 +34,9 @@ namespace PetUnity.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -333,7 +335,139 @@ namespace PetUnity.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        //
+        // GET: /Manage/TelaInicial
+        public ActionResult TelaInicial()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Manage/Agendamento
+        public ActionResult Agendamento()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Manage/Agendamento
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Agendamento(AgendamentoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Fachada fachada = new Fachada();
+                Agendamento agendamento = new Agendamento();
+
+                agendamento.Agendamento_Unidade = model.Unidade;
+                string data = model.Data + " " + model.Hora;
+                agendamento.Agendamento_Data = Convert.ToDateTime(data);
+                agendamento.Agendamento_Cliente = fachada.SelectClienteEmail(User.Identity.Name);
+
+                fachada.InsertAgenda(agendamento);
+
+                return RedirectToAction("TelaInicial", "Manage");
+            }
+
+            ModelState.AddModelError("", "Erro ao tentar agendar, verifique se os campos foram preenchidos corretamente.");
+            return View(model);
+        }
+
+        //
+        // GET: /Manage/CadastroAnimais
+        public ActionResult CadastroAnimais()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Manage/CadastroAnimais
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult CadastroAnimais(CadastroAnimaisViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Fachada fachada = new Fachada();
+                Animal animal = new Animal();
+
+                animal.Animal_Nome = model.Nome;
+                animal.Animal_Raca = model.Raca;
+                animal.Animal_Especie = model.Especie;
+                animal.Animal_Idade = model.Idade;
+                animal.Animal_Peso = model.Peso;
+
+                fachada.InsertAnimal(animal);
+
+                return RedirectToAction("TelaInicial", "Manage");
+            }
+
+            ModelState.AddModelError("", "Erro ao tentar cadastar pet, verifique se os campos foram preenchidos corretamente.");
+            return View(model);
+        }
+
+        //
+        // GET: /Manage/Adocao
+        public ActionResult Adocao()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Manage/Adocao
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Adocao(AdocaoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Fachada fachada = new Fachada();
+
+                return RedirectToAction("TelaInicial", "Manage");
+            }
+
+            ModelState.AddModelError("", "Erro ao tentar executar uma adoção, verifique se os campos foram preenchidos corretamente.");
+            return View(model);
+        }
+
+        //
+        // GET: /Manage/Doacao
+        public ActionResult Doacao()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Manage/Doacao
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Doacao(DoacaoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Fachada fachada = new Fachada();
+                Doacao doacao = new Doacao();
+
+                doacao.Doacao_Valor = model.Valor;
+                doacao.Doacao_Data = DateTime.Now;
+                doacao.Doacao_Cliente = fachada.SelectClienteEmail(User.Identity.Name);
+
+                fachada.InsertDoacao(doacao);
+
+                return RedirectToAction("TelaInicial", "Manage");
+            }
+
+            ModelState.AddModelError("", "Erro ao tentar efetuar uma doação, verifique se os campos foram preenchidos corretamente.");
+            return View(model);
+        }
+        
+
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -384,6 +518,6 @@ namespace PetUnity.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

@@ -56,6 +56,11 @@ namespace Biblioteca.Controller.Fachada
             return Cliente.Select(email, senha);
         }
 
+        public Cliente SelectClienteEmail(string email)
+        {
+            return Cliente.SelectEmail(email);
+        }
+
         public IList<Cliente> ListCliente()
         {
             return Cliente.List();
