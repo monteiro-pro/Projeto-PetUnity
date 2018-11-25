@@ -52,7 +52,6 @@ namespace Teste
             Agendamento agenda = new Agendamento
             {
                 Agendamento_Data = DateTime.Now,
-                Agendamento_Hora = DateTime.Now,
                 Agendamento_Unidade = "Recife",
                 Agendamento_Cliente = cliente2
             };
@@ -94,7 +93,21 @@ namespace Teste
 
             //Fachada.SelectAgendamento("Recife");
 
-            Fachada.SelectDoacao(data);
+            //Fachada.SelectDoacao(data);
+
+            //IList<Cliente> lista = Fachada.ListCliente();
+
+            //foreach (Cliente lista in Fachada.ListCliente())
+            //{
+            //    Console.WriteLine(lista.Cliente_Nome);
+            //}
+
+            Animal animal = new Animal
+            {
+                Animal_ID = 2,
+            };
+
+            Fachada.RemoveAnimal(animal);
              
             //Fachada.ListDoacao();
 

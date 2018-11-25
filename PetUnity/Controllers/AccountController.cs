@@ -193,7 +193,7 @@ namespace PetUnity.Controllers
 
                         fachada.InsertCliente(cliente);
                     }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("TelaInicial", "Manage");
                 }
                 AddErrors(result);
             }
