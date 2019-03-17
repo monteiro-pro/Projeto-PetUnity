@@ -32,3 +32,7 @@ D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Períod
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\obj\Debug\Biblioteca.dll
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\obj\Debug\Biblioteca.pdb
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\WebDriver.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\WebDriver.Support.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\WebDriver.xml
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\Biblioteca\bin\Debug\WebDriver.Support.xml

@@ -66,3 +66,7 @@ D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Períod
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\PetUnity\bin\Iesi.Collections.xml
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\PetUnity\bin\MySql.Data.xml
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\PetUnity\bin\NHibernate.xml
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\PetUnity\bin\WebDriver.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\PetUnity\bin\WebDriver.Support.dll
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\PetUnity\bin\WebDriver.xml
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\4 Período\Programação para Software Corporativo\Projeto\Projeto PetUnity\PetUnity\bin\WebDriver.Support.xml
