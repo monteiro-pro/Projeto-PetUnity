@@ -6,12 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Biblioteca.Controller.Regra
 {
     public class RegraCliente : IRegraNegocio<Cliente>
     {
+        string erroMsg = string.Empty;
+        Regex regexNumero = new Regex(@"^[0-9]+$");
+        Regex regexNome = new Regex(@"^[\\áÁ\\àÀ\\ãÃ\\âÂ\\éÉ\\èÈ\\êÊ\\íÍ\\ìÌ\\óÓ\\òÒ\\õÕ\\ôÔ\\úÚ\\ùÙ\\çÇaA-zZ]+((\s[\\áÁ\\àÀ\\ãÃ\\âÂ\\éÉ\\èÈ\\êÊ\\íÍ\\ìÌ\\óÓ\\òÒ\\õÕ\\ôÔ\\úÚ\\ùÙ\\çÇaA-zZ]+)+)?$");
+        Regex regexEmail = new Regex(@"^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$");
+
         public void Insert(Cliente entidade)
         {
             VerificarDuplicidade(entidade);
@@ -65,34 +71,143 @@ namespace Biblioteca.Controller.Regra
 
         public void Validar(Cliente entidade)
         {
-            if(entidade == null)
+            if (VerificarEntidade(entidade))
             {
-                throw new Exception("Entidade nula!");
+                throw new Exception(erroMsg);
             }
-
-            if (String.IsNullOrEmpty(entidade.Cliente_Nome))
+            else if (VerificarNome(entidade.Cliente_Nome))
             {
-                throw new Exception("Nome não informado!");
+                throw new Exception(erroMsg);
             }
-
-            if (entidade.Cliente_RG == 0)
+            else if (VerificarRG(entidade.Cliente_RG))
             {
-                throw new Exception("RG não informado!");
+                throw new Exception(erroMsg);
             }
-
-            if (entidade.Cliente_CPF == 0)
+            else if (VerificarCPF(entidade.Cliente_CPF))
             {
-                throw new Exception("CPF não informado!");
+                throw new Exception(erroMsg);
             }
-
-            if (String.IsNullOrEmpty(entidade.Cliente_Email))
+            else if (VerificarEmail(entidade.Cliente_Email))
             {
-                throw new Exception("E-Mail não informado!");
+                throw new Exception(erroMsg);
             }
-
-            if (String.IsNullOrEmpty(entidade.Cliente_Senha))
+            else if (VerificarSenha(entidade.Cliente_Senha))
             {
-                throw new Exception("Senha não informada!");
+                throw new Exception(erroMsg);
+            }
+        }
+
+        // ## MÉTODOS DE VALIDAÇÃO
+        public bool VerificarEntidade(Cliente entidade)
+        {
+            if (entidade == null)
+            {
+                erroMsg = "A entidade não pode ser nula!";
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool VerificarNome(string nome)
+        {
+            if (String.IsNullOrEmpty(nome))
+            {
+                erroMsg = "O nome não pode ser nulo!";
+                return true;
+            }
+            else if(!regexNome.IsMatch(nome))
+            {
+                erroMsg = $"Nome {nome} inválido!";
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool VerificarRG(string rg)
+        {
+            if (String.IsNullOrEmpty(rg))
+            {
+                erroMsg = "RG não pode ser nulo!";
+                return true;
+            }
+            else if (rg.Length != 8)
+            {
+                erroMsg = "O RG deve ter exatos 8 caracteres!";
+                return true;
+            }
+            else if (!regexNumero.IsMatch(rg))
+            {
+                erroMsg = "O RG deve conter apenas números!";
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool VerificarCPF(string cpf)
+        {
+            if (String.IsNullOrEmpty(cpf))
+            {
+                erroMsg = "CPF não pode ser nulo!";
+                return true;
+            }
+            else if (cpf.Length != 11)
+            {
+                erroMsg = "O CPF deve ter exatos 11 caracteres!";
+                return true;
+            }
+            else if (!regexNumero.IsMatch(cpf))
+            {
+                erroMsg = "O CPF deve conter apenas números!";
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool VerificarEmail(string email)
+        {
+            if (String.IsNullOrEmpty(email))
+            {
+                erroMsg = "E-Mail não pode ser nulo!";
+                return true;
+            }
+            else if (!regexEmail.IsMatch(email))
+            {
+                erroMsg = $"E-mail {email} inválido!";
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool VerificarSenha(string senha)
+        {
+            if (String.IsNullOrEmpty(senha))
+            {
+                erroMsg = "Senha não pode ser nulo!";
+                return true;
+            }
+            else if (senha.Length > 10)
+            {
+                erroMsg = "A senha não pode conter mais de 10 caracteres!";
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

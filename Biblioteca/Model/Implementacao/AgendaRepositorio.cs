@@ -10,5 +10,6 @@ namespace Biblioteca.Model.Implementacao
 {
     public class AgendaRepositorio : RepositorioBase<Agendamento>
     {
+
     }
 }

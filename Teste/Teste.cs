@@ -22,8 +22,8 @@ namespace Teste
                 Cliente_ID = 1,
                 Cliente_Nome = "Pedro",
                 Cliente_Senha = "Teste",
-                Cliente_CPF = 1244,
-                Cliente_RG = 1344,
+                Cliente_CPF = "1244",
+                Cliente_RG = "1344",
                 Cliente_Endereco = "Teste2",
                 Cliente_Email = "Testepepep2",
                 Cliente_Telefone = 34566
@@ -33,8 +33,8 @@ namespace Teste
             {
                 Cliente_ID = 1,
                 Cliente_Nome = "Monteiro",
-                Cliente_CPF = 456,
-                Cliente_RG = 777,
+                Cliente_CPF = "456",
+                Cliente_RG = "777",
                 Cliente_Endereco = "Teste",
                 Cliente_Email = "Teste",
                 Cliente_Senha = "Teste",
