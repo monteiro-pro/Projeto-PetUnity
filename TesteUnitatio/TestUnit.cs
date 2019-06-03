@@ -267,74 +267,57 @@ namespace TesteUnitatio
 
 
         //## TESTES DE INTEGRAÇÃO
-        //** Testes das Entidades
+        //** Edidade Animal
         #region Teste da Entidade
         [TestMethod]
-        public void CrearEntidade()
+        public void TI_01_CrearEntidadeAnimal()
         {
-            // Animal
-            animal_test.Animal_Nome = "Dog Dog";
-            animal_test.Animal_Idade = 5;
-            animal_test.Animal_Raca = "PitBull";
-            animal_test.Animal_Especie = "Cachorro";
-            animal_test.Animal_Peso = 30;
-
             fachada_test.InsertAnimal(animal_test);
         }
 
         [TestMethod]
-        public void SelecionarEntidade()
+        public void TI_02_SelecionarAnimal()
         {
-            // Animal
-            animal_test.Animal_Nome = "Dog Dog";
-            animal_test.Animal_Idade = 5;
-            animal_test.Animal_Raca = "PitBull";
-            animal_test.Animal_Especie = "Cachorro";
-            animal_test.Animal_Peso = 30;
-
             fachada_test.SelectAnimal(animal_test.Animal_Nome);
         }
 
         [TestMethod]
-        public void ListarEntidade()
+        public void TI_03_SelecionarUltimoAnimal()
+        {
+            fachada_test.SelectAnimal(animal_test.Animal_Nome);
+        }
+
+        [TestMethod]
+        public void TI_04_ListarAnimal()
         {
             fachada_test.ListAnimla();
         }
 
+        [TestMethod]
+        public void TI_05_EdicaoAnimal()
+        {
+            Animal animal_test_update = fachada_test.SelectLastAnimal();
 
-        //[TestMethod]
-        //public void EdicaoEntidade()
-        //{
-        //    // Animal
-        //    animal_test.Animal_ID = 1;
-        //    animal_test.Animal_Nome = "Dog Dog";
-        //    animal_test.Animal_Idade = 5;
-        //    animal_test.Animal_Raca = "PitBull";
-        //    animal_test.Animal_Especie = "Cachorro";
-        //    animal_test.Animal_Peso = 30;
+            animal_test_update.Animal_Nome = "Chana";
+            animal_test_update.Animal_Idade = 2;
+            animal_test_update.Animal_Raca = "Sianes";
+            animal_test_update.Animal_Especie = "Gato";
+            animal_test_update.Animal_Peso = 20;
 
-        //    fachada_test.UpdateAnimal(animal_test);
-        //}
+            fachada_test.UpdateAnimal(animal_test_update);
+        }
 
-        //[TestMethod]
-        //public void DeletarEntidade()
-        //{
-        //    // Animal
-        //    animal_test.Animal_ID = 1;
-        //    animal_test.Animal_Nome = "Dog Dog";
-        //    animal_test.Animal_Idade = 5;
-        //    animal_test.Animal_Raca = "PitBull";
-        //    animal_test.Animal_Especie = "Cachorro";
-        //    animal_test.Animal_Peso = 30;
-
-        //    fachada_test.RemoveAnimal(animal_test);
-        //}
+        [TestMethod]
+        public void TI_06_DeletarAnimal()
+        {
+            fachada_test.RemoveAnimal(fachada_test.SelectLastAnimal());
+        }
         #endregion
 
         [TestCleanup]
         public void TerminarTeste()
         {
-            fachada_test.RemoveAnimal(animal_test);
+            //fachada_test.RemoveAnimal(animal_test);
         }
     }
 }

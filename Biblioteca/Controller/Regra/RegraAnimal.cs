@@ -43,6 +43,12 @@ namespace Biblioteca.Controller.Regra
             return new List<Animal>();/*new AnimalRepositorio().Select(nome, tabela, coluna);*/
         }
 
+        public Animal SelectLastId()
+        {
+            string tabela = BaseDeDados.tabelaAninal;
+            return new AnimalRepositorio().SelectLastID(tabela);
+        }
+
         public void Update(Animal entidade)
         {
             Validar(entidade);

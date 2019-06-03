@@ -130,6 +130,35 @@ namespace Biblioteca.Model.Repositorio
             return entidade;
         }
 
+        public T SelectLastID(string tabela)
+        {
+            T entidade;
+
+            string query = $"SELECT * FROM {tabela} ORDER BY Animal_ID DESC LIMIT 1;";
+            
+            using (ISession _session = NHibernateConecao.AbrirConexao())
+            {
+                using (ITransaction _transaction = _session.BeginTransaction())
+                {
+                    try
+                    {
+                        ISQLQuery result = _session.CreateSQLQuery(query);
+
+                        result.AddEntity(typeof(T));
+                        IList<T> lista = result.List<T>();
+                        entidade = lista.FirstOrDefault();
+                    }
+                    catch (Exception ex)
+                    {
+                        if (_transaction.WasCommitted)
+                            _transaction.Rollback();
+                        throw new Exception("Erro ao tentar Selecionar: " + ex.Message);
+                    }
+                }
+            }
+            return entidade;
+        }
+
         public IList<T> Select(DateTime data, string tabela, string coluna)
         {
             List<T> entidade;

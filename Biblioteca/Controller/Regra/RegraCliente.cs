@@ -52,6 +52,13 @@ namespace Biblioteca.Controller.Regra
             return new ClienteRepositorio().Select(nome, tabela, coluna);
         }
 
+        public Cliente SelectLastId()
+        {
+            string tabela = BaseDeDados.tabelaCliente;
+
+            return new ClienteRepositorio().SelectLastID(tabela);
+        }
+
         public Cliente SelectEmail(string email)
         {
             return new ClienteRepositorio().Select(email);

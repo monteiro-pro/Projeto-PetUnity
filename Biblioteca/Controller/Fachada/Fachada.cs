@@ -61,6 +61,11 @@ namespace Biblioteca.Controller.Fachada
             return Cliente.SelectEmail(email);
         }
 
+        public Cliente SelectLastCliente()
+        {
+            return Cliente.SelectLastId();
+        }
+
         public IList<Cliente> ListCliente()
         {
             return Cliente.List();
@@ -91,6 +96,11 @@ namespace Biblioteca.Controller.Fachada
         public IList<Animal> SelectAnimal(string nome)
         {
             return Animal.Select(nome);
+        }
+
+        public Animal SelectLastAnimal()
+        {
+            return Animal.SelectLastId();
         }
 
         public IList<Animal> ListAnimla()
