@@ -37,8 +37,8 @@ namespace Biblioteca.Controller.Regra
 
         public IList<Agendamento> Select(DateTime data)
         {
-            string tabela = BaseDeDados.tabelaAgendamento;
-            string coluna = BaseDeDados.colunaUnidadeAgendamento;
+            string tabela = BaseDeDados.Agenda.tabelaAgendamento;
+            string coluna = BaseDeDados.Agenda.colunaUnidadeAgendamento;
 
             return new AgendaRepositorio().Select(data, tabela, coluna);
         }

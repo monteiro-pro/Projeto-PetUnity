@@ -130,11 +130,11 @@ namespace Biblioteca.Model.Repositorio
             return entidade;
         }
 
-        public T SelectLastID(string tabela)
+        public T SelectLastID(string tabela, string coluna)
         {
             T entidade;
 
-            string query = $"SELECT * FROM {tabela} ORDER BY Animal_ID DESC LIMIT 1;";
+            string query = $"SELECT * FROM {tabela} ORDER BY {coluna} DESC LIMIT 1;";
             
             using (ISession _session = NHibernateConecao.AbrirConexao())
             {

@@ -37,16 +37,18 @@ namespace Biblioteca.Controller.Regra
 
         public IList<Animal> Select(string nome)
         {
-            string tabela = BaseDeDados.tabelaAninal;
-            string coluna = BaseDeDados.colunaNomeAnimal;
+            string tabela = BaseDeDados.Animal.tabelaAninal;
+            string coluna = BaseDeDados.Animal.colunaNomeAnimal;
 
             return new List<Animal>();/*new AnimalRepositorio().Select(nome, tabela, coluna);*/
         }
 
         public Animal SelectLastId()
         {
-            string tabela = BaseDeDados.tabelaAninal;
-            return new AnimalRepositorio().SelectLastID(tabela);
+            string tabela = BaseDeDados.Animal.tabelaAninal;
+            string coluna = BaseDeDados.Animal.colunaIDAnimal;
+
+            return new AnimalRepositorio().SelectLastID(tabela, coluna);
         }
 
         public void Update(Animal entidade)

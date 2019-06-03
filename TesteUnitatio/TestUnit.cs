@@ -48,8 +48,9 @@ namespace TesteUnitatio
         }
 
         //## TESTE UNITÁRIO
-
-        //** ENTIDADE
+        //** Regra de Negócio
+        #region Teste Unitário
+        #region Regra de Negócio
         [TestMethod]
         public void TUnit_01_Entidade_01()
         {
@@ -264,11 +265,14 @@ namespace TesteUnitatio
         {
             regra_cliente_teste.Validar(cliente_teste);
         }
+        #endregion
+        #endregion
 
 
         //## TESTES DE INTEGRAÇÃO
         //** Edidade Animal
-        #region Teste da Entidade
+        #region Teste de Integração
+        #region Animal
         [TestMethod]
         public void TI_01_CrearEntidadeAnimal()
         {
@@ -312,6 +316,70 @@ namespace TesteUnitatio
         {
             fachada_test.RemoveAnimal(fachada_test.SelectLastAnimal());
         }
+        #endregion
+
+        #region Cliente
+        [TestMethod]
+        public void TI_07_CrearEntidadeCliente()
+        {
+            fachada_test.InsertCliente(cliente_teste);
+        }
+
+        [TestMethod]
+        public void TI_08_SelectCliente()
+        {
+            fachada_test.SelectCliente(cliente_teste.Cliente_Nome);
+        }
+
+        [TestMethod]
+        public void TI_09_SelectCliente()
+        {
+            fachada_test.SelectCliente(cliente_teste.Cliente_Nome);
+        }
+
+        [TestMethod]
+        public void TI_10_SelectCliente()
+        {
+            fachada_test.SelectCliente(cliente_teste.Cliente_Email);
+        }
+
+        [TestMethod]
+        public void TI_11_SelectCliente()
+        {
+            fachada_test.SelectCliente(cliente_teste.Cliente_Email, cliente_teste.Cliente_Senha);
+        }
+
+        [TestMethod]
+        public void TI_12_SelectCliente()
+        {
+            fachada_test.SelectLastCliente();
+        }
+
+        [TestMethod]
+        public void TI_13_ListCliente()
+        {
+            fachada_test.ListCliente();
+        }
+
+        [TestMethod]
+        public void TI_14_EditarCliente()
+        {
+            Cliente test_cliente_update = fachada_test.SelectLastCliente();
+
+            test_cliente_update.Cliente_Nome = "Paulo Ângela";
+            test_cliente_update.Cliente_Email = "update.teste@update.com.br";
+            test_cliente_update.Cliente_Endereco = "Algum Lugar";
+            test_cliente_update.Cliente_Telefone = 222333444;
+
+            fachada_test.UpdateCliente(test_cliente_update);
+        }
+
+        [TestMethod]
+        public void TI_15_DeleteCliente()
+        {
+            fachada_test.RemoveCliente(fachada_test.SelectLastCliente());
+        }
+        #endregion
         #endregion
 
         [TestCleanup]

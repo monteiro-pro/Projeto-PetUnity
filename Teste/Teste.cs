@@ -107,7 +107,17 @@ namespace Teste
                 Animal_ID = 2,
             };
 
-            Fachada.RemoveAnimal(animal);
+            Cliente cliente_teste = new Cliente();
+
+            cliente_teste.Cliente_Nome = "Márcio Alvaro";
+            cliente_teste.Cliente_RG = "12345128";
+            cliente_teste.Cliente_CPF = "12345678901";
+            cliente_teste.Cliente_Endereco = "Lugar Tal - Rua tal";
+            cliente_teste.Cliente_Email = "teste.teste@teste.com";
+            cliente_teste.Cliente_Senha = "123abc";
+            cliente_teste.Cliente_Telefone = 12345678;
+
+            Fachada.RemoveCliente(cliente_teste);
              
             //Fachada.ListDoacao();
 

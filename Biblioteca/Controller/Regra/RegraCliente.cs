@@ -46,17 +46,18 @@ namespace Biblioteca.Controller.Regra
 
         public IList<Cliente> Select(string nome)
         {
-            string tabela = BaseDeDados.tabelaCliente;
-            string coluna = BaseDeDados.colunaNomeCliente;
+            string tabela = BaseDeDados.Cliente.tabelaCliente;
+            string coluna = BaseDeDados.Cliente.colunaNomeCliente;
 
             return new ClienteRepositorio().Select(nome, tabela, coluna);
         }
 
         public Cliente SelectLastId()
         {
-            string tabela = BaseDeDados.tabelaCliente;
+            string tabela = BaseDeDados.Cliente.tabelaCliente;
+            string coluna = BaseDeDados.Cliente.colunaIDCliente;
 
-            return new ClienteRepositorio().SelectLastID(tabela);
+            return new ClienteRepositorio().SelectLastID(tabela, coluna);
         }
 
         public Cliente SelectEmail(string email)

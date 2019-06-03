@@ -37,8 +37,8 @@ namespace Biblioteca.Controller.Regra
 
         public IList<Transacao> Select(DateTime data)
         {
-            string tabela = BaseDeDados.tabelaTransacao;
-            string coluna = BaseDeDados.colunaDataTransacao;
+            string tabela = BaseDeDados.Transacao.tabelaTransacao;
+            string coluna = BaseDeDados.Transacao.colunaDataTransacao;
 
             return new TransacaoRepositorio().Select(data, tabela, coluna);
         }

@@ -135,7 +135,7 @@ namespace Biblioteca.Controller.Fachada
             return Agendamento.Select(data);
         }
 
-        public IList<Agendamento> List()
+        public IList<Agendamento> ListAgendamento()
         {
             return Agendamento.List();
         }

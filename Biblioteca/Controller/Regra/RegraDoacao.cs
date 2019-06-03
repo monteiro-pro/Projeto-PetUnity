@@ -37,8 +37,8 @@ namespace Biblioteca.Controller.Regra
 
         public IList<Doacao> Select(DateTime data)
         {
-            string tabela = BaseDeDados.tabelaDoacao;
-            string coluna = BaseDeDados.colunaDataDoacao;
+            string tabela = BaseDeDados.Doacao.tabelaDoacao;
+            string coluna = BaseDeDados.Doacao.colunaDataDoacao;
 
             return new DoacaoRepositorio().Select(data, tabela, coluna);
         }
