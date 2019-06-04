@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TesteUnitatio;
 
 namespace PetUnity.Controllers
 {
@@ -10,7 +11,18 @@ namespace PetUnity.Controllers
     {
         public ActionResult Index()
         {
+            //** Chamando o teste de integração.
+            //TestUnit selenium = new TestUnit();
+            //selenium.Selenium();
+
             return View();
+        }
+
+        public void teste()
+        {
+            //** Chamando o teste de integração.
+            TestUnit selenium = new TestUnit();
+            selenium.Selenium();
         }
 
         public ActionResult About()

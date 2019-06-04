@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TesteUnitatio;
 
 namespace Teste
 {
@@ -102,23 +103,27 @@ namespace Teste
             //    Console.WriteLine(lista.Cliente_Nome);
             //}
 
-            Animal animal = new Animal
-            {
-                Animal_ID = 2,
-            };
+            //Animal animal = new Animal
+            //{
+            //    Animal_ID = 2,
+            //};
 
-            Cliente cliente_teste = new Cliente();
+            //Cliente cliente_teste = new Cliente();
 
-            cliente_teste.Cliente_Nome = "Márcio Alvaro";
-            cliente_teste.Cliente_RG = "12345128";
-            cliente_teste.Cliente_CPF = "12345678901";
-            cliente_teste.Cliente_Endereco = "Lugar Tal - Rua tal";
-            cliente_teste.Cliente_Email = "teste.teste@teste.com";
-            cliente_teste.Cliente_Senha = "123abc";
-            cliente_teste.Cliente_Telefone = 12345678;
+            //cliente_teste.Cliente_Nome = "Márcio Alvaro";
+            //cliente_teste.Cliente_RG = "12345128";
+            //cliente_teste.Cliente_CPF = "12345678901";
+            //cliente_teste.Cliente_Endereco = "Lugar Tal - Rua tal";
+            //cliente_teste.Cliente_Email = "teste.teste@teste.com";
+            //cliente_teste.Cliente_Senha = "123abc";
+            //cliente_teste.Cliente_Telefone = 12345678;
 
-            Fachada.RemoveCliente(cliente_teste);
-             
+            //Fachada.RemoveCliente(cliente_teste);
+
+            TestUnit sss = new TestUnit();
+
+            sss.IniciarTeste();
+
             //Fachada.ListDoacao();
 
             //teste.List(teste.GetType);

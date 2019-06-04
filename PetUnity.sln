@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teste", "Teste\Teste.csproj", "{82E27977-2DAF-4D8E-8307-2646F20D7FE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetUnity", "PetUnity\PetUnity.csproj", "{74CB4578-036E-4A29-9D5E-CB55E9EE22CE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EDE40E63-CF23-45DB-AFDA-FC3C4BEC1DA2} = {EDE40E63-CF23-45DB-AFDA-FC3C4BEC1DA2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteUnitatio", "TesteUnitatio\TesteUnitatio.csproj", "{EDE40E63-CF23-45DB-AFDA-FC3C4BEC1DA2}"
 EndProject

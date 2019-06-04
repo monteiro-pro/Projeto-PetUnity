@@ -86,22 +86,29 @@ namespace PetUnity.Controllers
                 return View(model);
             }
 
+            //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            //var result = await UserManager.CreateAsync(user, model.Senha);
+            //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+            return RedirectToAction("TelaInicial", "Manage");
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(cliente.Cliente_Email, cliente.Cliente_Senha, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToAction("TelaInicial", "Manage");
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Tentativa de login inválida.");
-                    return View(model);
-            }
+            //var result = await SignInManager.PasswordSignInAsync(cliente.Cliente_Email, cliente.Cliente_Senha, model.RememberMe, shouldLockout: false);
+            //return Redirect("http://localhost:53627/Manage/TelaInicial");
+            //switch (result)
+            //{
+            //    case SignInStatus.Success:
+            //        return RedirectToAction("TelaInicial", "Manage");
+            //    case SignInStatus.LockedOut:
+            //        return View("Lockout");
+            //    case SignInStatus.RequiresVerification:
+            //        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+            //    case SignInStatus.Failure:
+            //    default:
+            //        ModelState.AddModelError("", "Tentativa de login inválida.");
+            //        return View(model);
+            //}
         }
 
         //
@@ -162,44 +169,64 @@ namespace PetUnity.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+
+
+            Fachada fachada = new Fachada();
+
+            Cliente cliente = new Cliente
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Senha);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                Cliente_Nome = model.Nome,
+                Cliente_RG = model.RG,
+                Cliente_CPF = model.CPF,
+                Cliente_Endereco = model.Endereco,
+                Cliente_Email = model.Email,
+                Cliente_Senha = model.Senha,
+                Cliente_Telefone = model.Telefone
+            };
 
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+            fachada.InsertCliente(cliente);
 
-                    if (ModelState.IsValid)
-                    {
-                        Fachada fachada = new Fachada();
+            return RedirectToAction("TelaInicial", "Manage");
 
-                        Cliente cliente = new Cliente
-                        {
-                            Cliente_Nome = model.Nome,
-                            Cliente_RG = model.RG,
-                            Cliente_CPF = model.CPF,
-                            Cliente_Endereco = model.Endereco,
-                            Cliente_Email = model.Email,
-                            Cliente_Senha = model.Senha,
-                            Cliente_Telefone = model.Telefone
-                        };
 
-                        fachada.InsertCliente(cliente);
-                    }
-                    return RedirectToAction("TelaInicial", "Manage");
-                }
-                AddErrors(result);
-            }
+            //if (ModelState.IsValid)
+            //{
+            //    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            //    var result = await UserManager.CreateAsync(user, model.Senha);
+            //    if (result.Succeeded)
+            //    {
+            //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            //        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+            //        // Send an email with this link
+            //        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            //        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+            //        // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+            //        if (ModelState.IsValid)
+            //        {
+            //            Fachada fachada = new Fachada();
+
+            //            Cliente cliente = new Cliente
+            //            {
+            //                Cliente_Nome = model.Nome,
+            //                Cliente_RG = model.RG,
+            //                Cliente_CPF = model.CPF,
+            //                Cliente_Endereco = model.Endereco,
+            //                Cliente_Email = model.Email,
+            //                Cliente_Senha = model.Senha,
+            //                Cliente_Telefone = model.Telefone
+            //            };
+
+            //            fachada.InsertCliente(cliente);
+            //        }
+            //        return RedirectToAction("TelaInicial", "Manage");
+            //    }
+            //    AddErrors(result);
+            //}
+
+            //// If we got this far, something failed, redisplay form
+            //return View(model);
         }
 
         //

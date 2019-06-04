@@ -83,6 +83,10 @@
       <Project>{37535c4b-df5a-4547-9116-2b52aac7d4fb}</Project>
       <Name>Biblioteca</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TesteUnitatio\TesteUnitatio.csproj">
+      <Project>{ede40e63-cf23-45db-afda-fc3c4bec1da2}</Project>
+      <Name>TesteUnitatio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

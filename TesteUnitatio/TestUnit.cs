@@ -6,6 +6,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Biblioteca.Controller.Regra;
 using Biblioteca.Model.Repositorio;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 
 namespace TesteUnitatio
 {
@@ -18,18 +20,13 @@ namespace TesteUnitatio
         Cliente cliente_teste = new Cliente();
         RegraAnimal regra_animal_teste = new RegraAnimal();
         RegraCliente regra_cliente_teste = new RegraCliente();
-        string textoCorreto = string.Empty;
-        string textoErrado = string.Empty;
 
         //## SELENIUM
         //private Selenium selenium = new ISelenium();
 
         [TestInitialize]
         public void IniciarTeste()
-        {
-            //IWebDriver driver = new ChromeDriver();
-            //driver.Navigate().GoToUrl("http://localhost:53627/");
-
+        {          
             // ANIMAL
             animal_test.Animal_Nome = "Dog Dog";
             animal_test.Animal_Idade = 5;
@@ -43,7 +40,7 @@ namespace TesteUnitatio
             cliente_teste.Cliente_CPF = "12345678901";
             cliente_teste.Cliente_Endereco = "Lugar Tal - Rua tal";
             cliente_teste.Cliente_Email = "teste.teste@teste.com";
-            cliente_teste.Cliente_Senha = "123abc";
+            cliente_teste.Cliente_Senha = "123-aBC";
             cliente_teste.Cliente_Telefone = 12345678;
         }
 
@@ -380,6 +377,35 @@ namespace TesteUnitatio
             fachada_test.RemoveCliente(fachada_test.SelectLastCliente());
         }
         #endregion
+        #endregion
+
+        //## TESTES DE FUNCIONALIDADE 
+        //** Tela
+        #region Teste de Fincionalidade
+        public void Selenium()
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            driver.Navigate().GoToUrl("http://localhost:53627/Account/Register");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            IniciarTeste();
+
+            driver.FindElement(By.Id("Nome")).SendKeys(cliente_teste.Cliente_Nome);
+            driver.FindElement(By.Id("RG")).SendKeys(cliente_teste.Cliente_RG);
+            driver.FindElement(By.Id("CPF")).SendKeys(cliente_teste.Cliente_CPF);
+            driver.FindElement(By.Id("Endereco")).SendKeys(cliente_teste.Cliente_Endereco);
+            driver.FindElement(By.Id("Email")).SendKeys(cliente_teste.Cliente_Email);
+            driver.FindElement(By.Id("Senha")).SendKeys(cliente_teste.Cliente_Senha);
+            driver.FindElement(By.Id("ConfirmSenha")).SendKeys(cliente_teste.Cliente_Senha);
+            driver.FindElement(By.Id("Telefone")).SendKeys(cliente_teste.Cliente_Telefone.ToString());
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(100);
+            driver.FindElement(By.Id("Register")).Click();
+
+            fachada_test.RemoveCliente(fachada_test.SelectLastCliente());
+        }
         #endregion
 
         [TestCleanup]
