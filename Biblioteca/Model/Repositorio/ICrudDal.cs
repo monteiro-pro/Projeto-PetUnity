@@ -8,7 +8,7 @@ namespace Biblioteca.Model.Repositorio
 {
     public interface ICrudDal<T>
     {
-        void Insert(T entidade);
+        bool Insert(T entidade);
         void Remove(T entidade);
         void Update(T entidade);
     }

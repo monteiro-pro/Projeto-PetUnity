@@ -8,6 +8,7 @@ using Biblioteca.Controller.Regra;
 using Biblioteca.Model.Repositorio;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using Moq;
 
 namespace TesteUnitatio
 {
@@ -21,12 +22,9 @@ namespace TesteUnitatio
         RegraAnimal regra_animal_teste = new RegraAnimal();
         RegraCliente regra_cliente_teste = new RegraCliente();
 
-        //## SELENIUM
-        //private Selenium selenium = new ISelenium();
-
         [TestInitialize]
         public void IniciarTeste()
-        {          
+        {
             // ANIMAL
             animal_test.Animal_Nome = "Dog Dog";
             animal_test.Animal_Idade = 5;
@@ -262,6 +260,53 @@ namespace TesteUnitatio
         {
             regra_cliente_teste.Validar(cliente_teste);
         }
+
+        //** REGRA DE NEGÓCIO (MOCK).
+        //[TestMethod]
+        //public void TUnit_08_Select_01()
+        //{
+        //    cliente_teste.Cliente_ID = 4;
+        //    cliente_teste.Cliente_Nome = "Márcio Alvaro";
+        //    cliente_teste.Cliente_RG = "22346128";
+        //    cliente_teste.Cliente_CPF = "22345678901";
+        //    cliente_teste.Cliente_Endereco = "Lugar Tal - Rua tal";
+        //    cliente_teste.Cliente_Email = "teste@teste.com";
+        //    cliente_teste.Cliente_Senha = "123-bBC";
+        //    cliente_teste.Cliente_Telefone = 12345678;
+
+        //    RegraCliente verif = new RegraCliente();
+
+        //    Mock<IRegraNegocio<Cliente>> mock = new Mock<IRegraNegocio<Cliente>>();
+        //    mock.Setup(m => m.Select(4)).Returns(verif.Select(4));
+
+        //    // act
+        //    Cliente resultadoEsperado = verif.Select(4);
+        //    Cliente resultado = verif.Select(4);
+
+        //    bool teste = Equals(resultadoEsperado, resultado);
+
+        //    // assert
+        //    Assert.AreEqual(resultado, resultadoEsperado);
+        //}
+
+
+        [TestMethod]
+        public void TUnit_08_Select_01()
+        {
+            Mock<IRegraNegocio<Cliente>> mock = new Mock<IRegraNegocio<Cliente>>();
+            mock.Setup(m => m.Insert(cliente_teste)).Returns(true);
+            RegraCliente verif = new RegraCliente();
+
+            // act
+            var resultadoEsperado = mock.Object.Insert(cliente_teste);
+            var resultado = verif.Insert(cliente_teste);
+
+            // assert
+            Assert.AreEqual(resultado, resultadoEsperado);
+
+            verif.Remove(cliente_teste);
+        }
+
         #endregion
         #endregion
 

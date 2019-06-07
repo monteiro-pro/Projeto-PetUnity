@@ -11,14 +11,10 @@ namespace PetUnity.Controllers
     {
         public ActionResult Index()
         {
-            //** Chamando o teste de integração.
-            //TestUnit selenium = new TestUnit();
-            //selenium.Selenium();
-
             return View();
         }
 
-        public void teste()
+        public void IniciarTesteIntegracao()
         {
             //** Chamando o teste de integração.
             TestUnit selenium = new TestUnit();

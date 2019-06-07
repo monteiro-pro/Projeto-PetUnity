@@ -11,11 +11,11 @@ namespace Biblioteca.Controller.Regra
 {
     public class RegraAnimal : IRegraNegocio<Animal>
     {
-        public void Insert(Animal entidade)
+        public bool Insert(Animal entidade)
         {
             Validar(entidade);
 
-            new AnimalRepositorio().Insert(entidade);
+            return new AnimalRepositorio().Insert(entidade);
         }
 
         public IList<Animal> List()

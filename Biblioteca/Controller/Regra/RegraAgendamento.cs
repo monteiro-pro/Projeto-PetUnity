@@ -11,11 +11,11 @@ namespace Biblioteca.Controller.Regra
 {
     public class RegraAgendamento : IRegraNegocio<Agendamento>
     {
-        public void Insert(Agendamento entidade)
+        public bool Insert(Agendamento entidade)
         {
             Validar(entidade);
 
-            new AgendaRepositorio().Insert(entidade);
+            return new AgendaRepositorio().Insert(entidade);
         }
 
         public IList<Agendamento> List()

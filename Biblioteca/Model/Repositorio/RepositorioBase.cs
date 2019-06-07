@@ -12,7 +12,7 @@ namespace Biblioteca.Model.Repositorio
 {
     public class RepositorioBase<T> : ICrudDal<T> where T : class
     {
-        public void Insert(T entidade)
+        public bool Insert(T entidade)
         {
             using(ISession _session = NHibernateConecao.AbrirConexao())
             {
@@ -23,6 +23,8 @@ namespace Biblioteca.Model.Repositorio
                         _session.Save(entidade);
 
                         _transaction.Commit();
+
+                        return true;
                     }
                     catch(Exception ex)
                     {

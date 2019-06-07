@@ -8,7 +8,7 @@ namespace Biblioteca.Controller.Regra
 {
     public interface IRegraNegocio<T>
     {
-        void Insert(T entidade);
+        bool Insert(T entidade);
         void Update(T entidade);
         void Remove(T entidade);
         T Select(int id);

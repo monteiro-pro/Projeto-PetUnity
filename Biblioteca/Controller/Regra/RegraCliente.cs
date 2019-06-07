@@ -18,13 +18,13 @@ namespace Biblioteca.Controller.Regra
         Regex regexNome = new Regex(@"^[\\áÁ\\àÀ\\ãÃ\\âÂ\\éÉ\\èÈ\\êÊ\\íÍ\\ìÌ\\óÓ\\òÒ\\õÕ\\ôÔ\\úÚ\\ùÙ\\çÇaA-zZ]+((\s[\\áÁ\\àÀ\\ãÃ\\âÂ\\éÉ\\èÈ\\êÊ\\íÍ\\ìÌ\\óÓ\\òÒ\\õÕ\\ôÔ\\úÚ\\ùÙ\\çÇaA-zZ]+)+)?$");
         Regex regexEmail = new Regex(@"^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$");
 
-        public void Insert(Cliente entidade)
+        public bool Insert(Cliente entidade)
         {
             VerificarDuplicidade(entidade);
 
             Validar(entidade);
 
-            new ClienteRepositorio().Insert(entidade);
+            return new ClienteRepositorio().Insert(entidade);
         }
 
         public IList<Cliente> List()

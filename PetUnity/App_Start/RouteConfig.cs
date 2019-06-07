@@ -16,7 +16,7 @@ namespace PetUnity
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "teste", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "IniciarTesteIntegracao", id = UrlParameter.Optional }
             );
         }
     }

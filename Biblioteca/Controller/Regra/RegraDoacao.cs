@@ -11,11 +11,11 @@ namespace Biblioteca.Controller.Regra
 {
     public class RegraDoacao : IRegraNegocio<Doacao>
     {
-        public void Insert(Doacao entidade)
+        public bool Insert(Doacao entidade)
         {
             Validar(entidade);
 
-            new DoacaoRepositorio().Insert(entidade);
+            return new DoacaoRepositorio().Insert(entidade);
         }
 
         public IList<Doacao> List()
